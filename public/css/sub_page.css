@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/* write page */
+.fa-plus,
+.fa-star,
+.fa-pen {
+  color: var(--point_c1);
+  font-size: 1.25rem;
+}
+
+form {
+  width: 340px;
+  height: 480px;
+  margin: 40px auto;
+  position: relative;
+}
+
+form div {
+  padding: 0.5rem 0;
+}
+
+label {
+  font-family: "DXTraveldiaryMd";
+  font-size: 20px;
+  padding: 0 2rem;
+  display: inline-block;
+  width: 100px;
+}
+form div:last-of-type label {
+  vertical-align: top;
+}
+
+input {
+  width: 200px;
+  font-family: "DXTraveldiaryLt";
+  font-size: 16px;
+}
+input[type="file"]::file-selector-button,
+#category {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--point_c1);
+  color: var(--font_c);
+  text-align: center;
+  font-size: 12px;
+  padding: 0.25rem 1rem;
+}
+
+#descript {
+  max-width: 200px;
+  max-height: 160px;
+  font-family: "DXTraveldiaryLt";
+  font-size: 18px;
+}
+
+#submit {
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  /* background-image: url(/public/img/marker2.png) no-repeat center top/100%; */
+  background-image: url(/public/img/marker2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  font-family: "DXTraveldiaryMd";
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+/* detail page */
+.detail_con {
+  width: calc(100% - 8rem);
+  margin: 2rem auto;
+}
+.detail_con img {
+  width: 100%;
+  object-fit: contain;
+}
+.detail_con p {
+  /* border: 1px solid blue; */
+  padding: 1rem 0.5rem;
+  font-family: "DXTraveldiaryLt";
+  font-size: 18px;
+  text-align: justify;
+}
+.detail_con div {
+  /* border: 1px solid blue; */
+  font-family: "DXTraveldiaryLt";
+  font-size: 16px;
+  text-align: right;
+}
+.detail_con span {
+  padding: 0 0.5rem;
+}
+
+.btn_con {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.delete {
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  /* background-image: url(/public/img/marker2.png) no-repeat center top/100%; */
+  background-image: url(/public/img/marker1.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  font-family: "DXTraveldiaryMd";
+  font-size: 18px;
+  cursor: pointer;
+}
+.btn_edit {
+  /* border: 1px solid red; */
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  font-family: "DXTraveldiaryMd";
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  position: relative;
+}
+.btn_edit::before {
+  content: "";
+  /* border: 1px solid purple; */
+  background-image: url(/public/img/marker2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+/* edit */

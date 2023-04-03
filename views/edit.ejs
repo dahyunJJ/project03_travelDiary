@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/my_reset.css" />
+    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/sub_page.css" />
+    <title>여행기록</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+
+    <main class="mw">
+      <section class="banner">
+        <span>기억 수정하기</span>
+        <i class="fa-solid fa-pen"></i>
+      </section>
+      <form action="/edit?_method=PUT" method="post">
+        <div>
+          <input type="text" name="id" value="<%= post._id %>" hidden />
+          <label for="photo">이미지</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept=".png, .jpg, .jpeg"
+          />
+        </div>
+        <div>
+          <label for="title">제목</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            maxlength="26"
+            value="<%= post.postTitle %>"
+            required
+          />
+        </div>
+        <div>
+          <label for="category">분류</label>
+          <select
+            name="category"
+            id="category"
+            value="<%= post.postCategory %>"
+          >
+            <option value="all">전체</option>
+            <option value="korea">국내</option>
+            <option value="global">해외</option>
+          </select>
+        </div>
+        <div>
+          <label for="country">장소</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            maxlength="10"
+            value="<%= post.postCountry %>"
+            required
+          />
+        </div>
+        <div>
+          <label for="date">날짜</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value="<%= post.postDate %>"
+            required
+          />
+        </div>
+        <div>
+          <label for="descript">내용 </label>
+          <textarea
+            name="descript"
+            id="descript"
+            cols="30"
+            rows="10"
+            maxlength="200"
+          >
+<%= post.postDescript %></textarea
+          >
+        </div>
+        <input type="submit" id="submit" value="수정하기" />
+      </form>
+    </main>
+  </body>
+</html>

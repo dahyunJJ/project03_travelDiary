@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/my_reset.css" />
+    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/sub_page.css" />
+    <title>여행기록</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+
+    <main class="mw">
+      <section class="banner">
+        <span>새 여행 기록</span>
+        <i class="fa-solid fa-star"></i>
+      </section>
+      <section class="detail_con">
+        <img src="/public/img/london.png" alt="london" />
+        <p><%= data.postDescript %></p>
+        <div>
+          <span><%= data.postCountry %></span>
+          <span><%= data.postDate %></span>
+        </div>
+        <div class="btn_con">
+          <button class="delete" data-id=" <%= data._id %>">삭제</button>
+          <a class="btn_edit" href="/edit/<%= data._id %>">수정하기</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $(".delete").click(function (e) {
+        let num = e.target.dataset.id;
+        $.ajax({
+          method: "DELETE",
+          url: "/delete",
+          data: { _id: num },
+        })
+          .done(function (result) {
+            location.href = "/";
+          })
+          .fail(function (xhr, textStatus, errorThrown) {
+            console.log(xhr, textStatus, errorThrown);
+          });
+      });
+    </script>
+  </body>
+</html>
