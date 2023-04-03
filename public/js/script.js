@@ -26,19 +26,21 @@ $search.addEventListener("keyup", () => {
 });
 
 // 카테고리 분류 기능
+const $category = document.querySelectorAll(".category > button");
 const $btnAll = document.querySelector(".btn_all");
 const $btnKorea = document.querySelector(".btn_korea");
 const $btnGlobal = document.querySelector(".btn_global");
-const $travel_list = document.querySelectorAll(".travel_list");
+const $travelList = document.querySelectorAll(".travel > li");
+const $btnMore = document.querySelector(".btnmore");
 
 $btnAll.addEventListener("click", () => {
-  $travel_list.forEach((list) => {
+  $travelList.forEach((list) => {
     list.classList.remove("hide");
   });
 });
 
 $btnKorea.addEventListener("click", () => {
-  $travel_list.forEach((list) => {
+  $travelList.forEach((list) => {
     const category = list.dataset.category;
     if (category === "korea") {
       list.classList.remove("hide");
@@ -49,12 +51,37 @@ $btnKorea.addEventListener("click", () => {
 });
 
 $btnGlobal.addEventListener("click", () => {
-  $travel_list.forEach((list) => {
+  $travelList.forEach((list) => {
     const category = list.dataset.category;
     if (category === "global") {
       list.classList.remove("hide");
     } else {
       list.classList.add("hide");
+    }
+  });
+});
+
+$category.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    $category.forEach((a) => {
+      a.classList.remove("on");
+    });
+    $category[i].classList.add("on");
+  });
+});
+
+// 더보기 버튼
+let num = 6;
+$travelList.forEach((item, i) => {
+  if (i < num) {
+    item.classList.add("on");
+  }
+});
+$btnMore.addEventListener("click", () => {
+  num += 3;
+  $travelList.forEach((item, i) => {
+    if (i < num) {
+      item.classList.add("on");
     }
   });
 });
