@@ -25,9 +25,11 @@
       </section>
       <section class="sec1">
         <div class="category">
-          <button class="cate_btn btn_all on" data-name="전체">전체</button>
-          <button class="cate_btn btn_korea" data-name="국내">국내</button>
-          <button class="cate_btn btn_global" data-name="해외">해외</button>
+          <a class="cate_btn btn_all on" data-name="all" href="/">전체</a>
+          <a class="cate_btn btn_korea" data-name="korea" href="/korea">국내</a>
+          <a class="cate_btn btn_global" data-name="global" href="/global"
+            >해외</a
+          >
         </div>
         <div class="search_con">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -58,7 +60,7 @@
           <% } %>
         </ul>
         <div class="more">
-          <button class="btnmore">더보기</button>
+          <button class="btnmore" data-name="plus">더보기</button>
         </div>
       </section>
     </main>

@@ -1,7 +1,7 @@
 // 검색기능
 
 const $search = document.querySelector("#search");
-const $list = document.querySelectorAll(".travel > li");
+const $list = document.querySelectorAll(".travel_list");
 
 $search.addEventListener("keyup", () => {
   const searchWord = $search.value;
@@ -33,57 +33,63 @@ const $btnGlobal = document.querySelector(".btn_global");
 const $travelList = document.querySelectorAll(".travel > li");
 const $btnMore = document.querySelector(".btnmore");
 
+// 카테고리 버튼 이벤트
+//url에서 카테고리 가져오기
+const url = new URL(window.location.href).pathname;
+$btnAll.classList.remove("on");
+if (url === "/korea") {
+  $btnKorea.classList.add("on");
+} else if (url === "/global") {
+  $btnGlobal.classList.add("on");
+} else {
+  $btnAll.classList.add("on");
+}
+
+// 카테고리 분류
+const initNum = 6;
+let numShown = initNum;
+
+$travelList.forEach((item, i) => {
+  item.classList.toggle("hide", i >= numShown);
+});
+numShown = initNum;
+$btnMore.addEventListener("click", showMore);
+
 $btnAll.addEventListener("click", () => {
-  $travelList.forEach((list) => {
-    list.classList.remove("hide");
+  $travelList.forEach((item, i) => {
+    numShown = initNum;
+    item.classList.toggle("hide", i >= numShown);
   });
+  $btnMore.addEventListener("click", showMore);
 });
 
 $btnKorea.addEventListener("click", () => {
-  $travelList.forEach((list) => {
-    const category = list.dataset.category;
-    if (category === "korea") {
-      list.classList.remove("hide");
-    } else {
-      list.classList.add("hide");
-    }
+  numShown = initNum;
+  $travelList.forEach((item) => {
+    item.classList.toggle("hide", item.dataset.category !== "korea");
   });
+  $btnMore.addEventListener("click", showMore);
 });
 
 $btnGlobal.addEventListener("click", () => {
-  $travelList.forEach((list) => {
-    const category = list.dataset.category;
-    if (category === "global") {
-      list.classList.remove("hide");
-    } else {
-      list.classList.add("hide");
-    }
+  $travelList.forEach((item, i) => {
+    item.classList.toggle(
+      "hide",
+      i >= initNum || item.dataset.category !== "global"
+    );
   });
-});
-
-$category.forEach((btn, i) => {
-  btn.addEventListener("click", () => {
-    $category.forEach((a) => {
-      a.classList.remove("on");
-    });
-    $category[i].classList.add("on");
-  });
+  numShown = initNum;
+  $btnMore.addEventListener("click", showMore);
 });
 
 // 더보기 버튼
-// let num = 6;
-// $travelList.forEach((item, i) => {
-//   if (i < num) {
-//     item.classList.remove("hide");
-//   } else {
-//     item.classList.add("hide");
-//   }
-// });
-// $btnMore.addEventListener("click", () => {
-//   num += 3;
-//   $travelList.forEach((item, i) => {
-//     if (i < num) {
-//       item.classList.remove("hide");
-//     }
-//   });
-// });
+function showMore() {
+  numShown += 3;
+  $travelList.forEach((item, i) => {
+    if (i < numShown) {
+      item.classList.remove("hide");
+    }
+  });
+}
+
+$btnMore.addEventListener("click", showMore);

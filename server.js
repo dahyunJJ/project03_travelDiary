@@ -30,6 +30,18 @@ async function main() {
       res.render("list.ejs", { post: result });
     });
 
+    app.get("/korea", async (req, res) => {
+      const cursor = postCollection.find({ postCategory: "korea" });
+      const result = (await cursor.toArray()).sort().reverse();
+      res.render("list.ejs", { post: result });
+    });
+
+    app.get("/global", async (req, res) => {
+      const cursor = postCollection.find({ postCategory: "global" });
+      const result = (await cursor.toArray()).sort().reverse();
+      res.render("list.ejs", { post: result });
+    });
+
     app.get("/write", (req, res) => {
       res.render("write.ejs");
     });
