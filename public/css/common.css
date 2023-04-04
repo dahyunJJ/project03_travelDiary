@@ -184,10 +184,6 @@ body {
   width: 125px;
   height: 194px;
   position: relative;
-  display: none;
-}
-.travel_list.on {
-  display: block;
 }
 
 .travel_list img {
@@ -248,7 +244,7 @@ body {
 }
 
 .more {
-  padding-top: 2rem;
+  padding: 2rem 0;
   text-align: center;
 }
 .btnmore {

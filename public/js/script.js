@@ -1,7 +1,7 @@
 // 검색기능
 
 const $search = document.querySelector("#search");
-const $list = document.querySelectorAll(".travel_list");
+const $list = document.querySelectorAll(".travel > li");
 
 $search.addEventListener("keyup", () => {
   const searchWord = $search.value;
@@ -71,17 +71,19 @@ $category.forEach((btn, i) => {
 });
 
 // 더보기 버튼
-let num = 6;
-$travelList.forEach((item, i) => {
-  if (i < num) {
-    item.classList.add("on");
-  }
-});
-$btnMore.addEventListener("click", () => {
-  num += 3;
-  $travelList.forEach((item, i) => {
-    if (i < num) {
-      item.classList.add("on");
-    }
-  });
-});
+// let num = 6;
+// $travelList.forEach((item, i) => {
+//   if (i < num) {
+//     item.classList.remove("hide");
+//   } else {
+//     item.classList.add("hide");
+//   }
+// });
+// $btnMore.addEventListener("click", () => {
+//   num += 3;
+//   $travelList.forEach((item, i) => {
+//     if (i < num) {
+//       item.classList.remove("hide");
+//     }
+//   });
+// });
