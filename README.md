@@ -25,6 +25,6 @@
 
 
 ## 데모
-#### [서버 도메인] (https://port-0-traveldiary-1io3t2blg1jxozy.sel3.cloudtype.app/)
+#### [서버 도메인](https://port-0-traveldiary-1io3t2blg1jxozy.sel3.cloudtype.app/)
 
 <img width="20%" src="https://user-images.githubusercontent.com/117347407/229693427-c7efe81c-9ec8-45f4-baa9-404bc5688f97.png">
