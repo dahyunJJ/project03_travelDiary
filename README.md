@@ -5,7 +5,7 @@
 > 다녀왔던 여행지에 대한 감상을 일기처럼 기록하고 관리할 수 있는 게시판
 
 ## 작업 영역
-> 컨셉 선정 및 기획 / Figma를 활용한 웹디자인 / 코딩 / aws 서버 호스팅
+> 컨셉 선정 및 기획 / Figma를 활용한 웹디자인 / 코딩 / cloudtype 서버 호스팅
 
 ## 사용툴 
 > <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> 
@@ -25,3 +25,6 @@
 
 
 ## 데모
+#### [서버 도메인](https://port-0-traveldiary-1io3t2blg1jxozy.sel3.cloudtype.app/)
+
+<img width="20%" src="https://user-images.githubusercontent.com/117347407/229693427-c7efe81c-9ec8-45f4-baa9-404bc5688f97.png">
